@@ -32,13 +32,13 @@
 
 <?php
        
-       $sql = "SELECT first_name, middle_name, last_name, uploaded_image FROM form_info ORDER BY Id DESC LIMIT 1";
+       $sql = "SELECT first_name, middle_name, last_name, uploaded_image FROM form_info";
        $execute = mysqli_query($conn, $sql);
        
        if (mysqli_num_rows($execute) > 0) {
            while ($row = mysqli_fetch_assoc($execute)) {
                echo "First name: " . $row["first_name"] . ",   Middle name: " . $row["middle_name"] . ",   Last name: " . $row['last_name'] . "<br>";
-               echo "<img src='assets/uploads/" . $row['uploaded_image'] . "' alt='Uploaded Image'><br>";
+               echo "<img src='assets/uploads/" . $row['uploaded_image'] . "' alt='Uploaded Image' style='width: 80px; height: 80px;'><br>";
            }
        } else {
            echo "No result";
