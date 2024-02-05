@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+}
+
+form{
+    text-align: center;
+}
+
+input[id="uploadButton"],
+input[id="fetchButton"] {
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[id="fetchButton"] {
+    background-color: rgb(221, 81, 109);
+    color: black;
+    cursor: pointer;
+}
+
