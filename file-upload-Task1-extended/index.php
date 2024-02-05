@@ -1,3 +1,6 @@
+<?php
+        include 'database.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +14,6 @@
    <script src="assets/js/index.js"></script>
 </head>
 <body>
-    <?php
-        include 'database.php';
-        ?>
 <form id="myForm" method="post" action="#" enctype="multipart/form-data" >
     <label for=" first_name">First name:</label><br>
     <input type="text" id="first_name" name="first_name"><br>
