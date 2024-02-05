@@ -13,6 +13,7 @@
         }
         
         $sql = "INSERT INTO form_info (first_name, middle_name, last_name, uploaded_image) VALUES ('$first_name', '$middle_name', '$last_name', '$file_name')";
+        
         if (mysqli_query($conn, $sql)) {
              echo "New record created successfully";
         } else {

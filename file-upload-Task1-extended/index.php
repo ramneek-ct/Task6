@@ -11,6 +11,9 @@
    <script src="assets/js/index.js"></script>
 </head>
 <body>
+    <?php
+        include 'database.php';
+        ?>
 <form id="myForm" method="post" action="#" enctype="multipart/form-data" >
     <label for=" first_name">First name:</label><br>
     <input type="text" id="first_name" name="first_name"><br>
@@ -28,18 +31,20 @@
 </form>
 
 <?php
-    include 'database.php';
-        $sql = "SELECT first_name, middle_name, last_name, uploaded_image FROM form_info";
-     $execute= mysqli_query($conn, $sql);
-
-     if (mysqli_num_rows($execute)>0){
-         while($row = mysqli_fetch_assoc($execute)){
-            echo "First name: ".$row["first_name"]. ", Middle name: ".$row["middle_name"]. ", Last name: ".$row['last_name'].", Image: ".$row['uploaded_image']. "<br>";
-         }
-     }
-     else{
-        echo "No result";
-     }
+       
+       $sql = "SELECT first_name, middle_name, last_name, uploaded_image FROM form_info ORDER BY Id DESC LIMIT 1";
+       $execute = mysqli_query($conn, $sql);
+       
+       if (mysqli_num_rows($execute) > 0) {
+           while ($row = mysqli_fetch_assoc($execute)) {
+               echo "First name: " . $row["first_name"] . ",   Middle name: " . $row["middle_name"] . ",   Last name: " . $row['last_name'] . "<br>";
+               echo "<img src='assets/uploads/" . $row['uploaded_image'] . "' alt='Uploaded Image'><br>";
+           }
+       } else {
+           echo "No result";
+       }
+       
+       
 ?>
 
 </body>
